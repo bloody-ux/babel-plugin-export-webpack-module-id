@@ -1,0 +1,114 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`export call expression 1`] = `
+"
+export default connect()(function(){})
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+var _ref = connect()(function () {});
+
+_ref.webpackModuleId = module.id;
+export default _ref;
+export const webpackModuleId = module.id;
+"
+`;
+
+exports[`export default class 1`] = `
+"
+export default class XXX{
+   a() {
+
+   }
+ }
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+var _XXX = class XXX {
+  a() {}
+
+};
+
+_XXX.webpackModuleId = module.id;
+export default _XXX;
+export const webpackModuleId = module.id;
+"
+`;
+
+exports[`export default class variable 1`] = `
+"
+class X {}
+export default X;
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+class X {}
+
+X.webpackModuleId = module.id;
+export default X;
+export const webpackModuleId = module.id;
+"
+`;
+
+exports[`export default function 1`] = `
+"
+export default function() {
+  var x = 5;
+  console.log('xxxx');
+}
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+var _ref = function () {
+  var x = 5;
+  console.log('xxxx');
+};
+
+_ref.webpackModuleId = module.id;
+export default _ref;
+export const webpackModuleId = module.id;
+"
+`;
+
+exports[`export default function variable 1`] = `
+"
+function X() {}
+export default X;
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+function X() {}
+
+X.webpackModuleId = module.id;
+export default X;
+export const webpackModuleId = module.id;
+"
+`;
+
+exports[`export default variable expression 1`] = `
+"
+export default k = 12;
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+var _ref = k = 12;
+
+_ref.webpackModuleId = module.id;
+export default _ref;
+export const webpackModuleId = module.id;
+"
+`;
+
+exports[`export with babel options 1`] = `
+"
+export default connect()(function(){})
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+var _ref = connect()(function () {});
+
+_ref.moduleId = module.id;
+export default _ref;
+export const moduleId = module.id;
+"
+`;
