@@ -66,4 +66,5 @@ export const webpackModuleId = module.id;
 ## Options
 
 `webpackModuleId`：The property name of the module id. default: `['webpackModuleId']`
+
 `include`： which files to add module id, default: `undefined`
