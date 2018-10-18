@@ -5,10 +5,23 @@ const exportWebpackModuleId = 'webpackModuleId'
 module.exports = function exportWebpackModuleIdPlugin({
   types: t
 }) {
+  const shouldContinue = _this => {
+    const { include } = _this.opts
+
+    if (include && _this.file.opts.filename) {
+      const reg = new RegExp(include, 'i')
+      return reg.test(_this.file.opts.filename)
+    }
+
+    return true
+  }
+
   return {
     name: 'export-webpack-module-id',
     visitor: {
       ExportDefaultDeclaration(path) {
+        if (!shouldContinue(this)) return
+
         const { declaration } = path.node
         let identifier = declaration
 
@@ -58,6 +71,8 @@ module.exports = function exportWebpackModuleIdPlugin({
         path.insertBefore(assignExpression)
       },
       Program(path) {
+        if (!shouldContinue(this)) return
+
         const namedDeclaration = t.ExportNamedDeclaration(
           t.VariableDeclaration(
             'const',

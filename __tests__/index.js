@@ -50,6 +50,22 @@ pluginTester({
       pluginOptions: {
         webpackModuleId: 'moduleId'
       }
+    },
+    'export with filename match': {
+      code: `
+        export default connect()(function(){})
+      `,
+      pluginOptions: {
+        include: '^currentFile'
+      }
+    },
+    'export with filename not match': {
+      code: `
+        export default connect()(function(){})
+      `,
+      pluginOptions: {
+        include: '^currentFile$'
+      }
     }
   }
 })
