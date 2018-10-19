@@ -6,11 +6,17 @@ module.exports = function exportWebpackModuleIdPlugin({
   types: t
 }) {
   const shouldContinue = _this => {
-    const { include } = _this.opts
+    let { include } = _this.opts
 
     if (include && _this.file.opts.filename) {
-      const reg = new RegExp(include, 'i')
-      return reg.test(_this.file.opts.filename)
+      if (typeof include === 'string') {
+        include = [include]
+      }
+
+      for (let i = 0, length = include.length; i < length; i++) {
+        const reg = new RegExp(include[i], 'i')
+        return reg.test(_this.file.opts.filename)
+      }
     }
 
     return true
