@@ -15,11 +15,15 @@ module.exports = function exportWebpackModuleIdPlugin({
 
       for (let i = 0, length = include.length; i < length; i++) {
         const reg = new RegExp(include[i], 'i')
-        return reg.test(_this.file.opts.filename)
+        if (reg.test(_this.file.opts.filename)) {
+          return true
+        }
       }
+    } else {
+      return true
     }
 
-    return true
+    return false
   }
 
   return {
