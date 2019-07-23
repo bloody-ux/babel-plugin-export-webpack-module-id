@@ -113,6 +113,30 @@ export const moduleId = module.id;
 "
 `;
 
+exports[`export with filename excluded not match 1`] = `
+"
+export default connect()(function(){})
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+var _ref = connect()(function () {});
+
+_ref.webpackModuleId = module.id;
+export default _ref;
+export const webpackModuleId = module.id;
+"
+`;
+
+exports[`export with filename excluded successfully 1`] = `
+"
+export default connect()(function(){})
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+export default connect()(function () {});
+"
+`;
+
 exports[`export with filename match 1`] = `
 "
 export default connect()(function(){})

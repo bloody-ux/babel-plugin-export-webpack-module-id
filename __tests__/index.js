@@ -66,6 +66,22 @@ pluginTester({
       pluginOptions: {
         include: '^currentFile$'
       }
+    },
+    'export with filename excluded successfully': {
+      code: `
+        export default connect()(function(){})
+      `,
+      pluginOptions: {
+        exclude: '^currentFile'
+      }
+    },
+    'export with filename excluded not match': {
+      code: `
+        export default connect()(function(){})
+      `,
+      pluginOptions: {
+        exclude: '^currentFile$'
+      }
     }
   }
 })
