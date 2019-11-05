@@ -72,6 +72,11 @@ module.exports = function exportWebpackModuleIdPlugin({
 
           path.scope.push({ id, init: identifier })
           path.node.declaration = id
+
+          // if there's id exists, rename it back
+          if (identifier.id) {
+            path.scope.rename(id.name, identifier.id.name)
+          }
           identifier = id
         }
 

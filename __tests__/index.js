@@ -22,6 +22,14 @@ pluginTester({
         console.log('xxxx');
       }
     `,
+    'export default function with name': `
+      export default function XXX() {
+        var x = 5;
+        console.log('xxxx');
+      }
+
+      XXX.props = 1
+    `,
     'export default class': `
      export default class XXX{
         a() {

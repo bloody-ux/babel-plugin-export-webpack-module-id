@@ -24,13 +24,12 @@ export default class XXX{
 
       ↓ ↓ ↓ ↓ ↓ ↓
 
-var _XXX = class XXX {
+var XXX = class XXX {
   a() {}
 
 };
-
-_XXX.webpackModuleId = module.id;
-export default _XXX;
+XXX.webpackModuleId = module.id;
+export default XXX;
 export const webpackModuleId = module.id;
 "
 `;
@@ -81,6 +80,29 @@ function X() {}
 
 X.webpackModuleId = module.id;
 export default X;
+export const webpackModuleId = module.id;
+"
+`;
+
+exports[`export default function with name 1`] = `
+"
+export default function XXX() {
+  var x = 5;
+  console.log('xxxx');
+}
+
+XXX.props = 1
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+var XXX = function XXX() {
+  var x = 5;
+  console.log('xxxx');
+};
+
+XXX.webpackModuleId = module.id;
+export default XXX;
+XXX.props = 1;
 export const webpackModuleId = module.id;
 "
 `;
